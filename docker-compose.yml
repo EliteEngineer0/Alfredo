@@ -1,0 +1,13 @@
+services:
+  discord-bot:
+    container_name: discord
+    build: .
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN}  # Token stored in an .env file
+      GOOGLE_AI_KEY: ${GOOGLE_AI_KEY}
+      MAX_HISTORY: ${MAX_HISTORY}
+      DEVELOPMENT_MODE: ${DEVELOPMENT_MODE}
+      DEVELOPMENT_SERVER_ID: ${DEVELOPMENT_SERVER_ID}
+    env_file:
+      - .env  # Make sure your .env file contains DISCORD_TOKEN=<your_token>
+    restart: always
