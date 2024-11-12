@@ -11,9 +11,9 @@ image_prompt = system_prompt
 genai.configure(api_key=GOOGLE_AI_KEY)
 
 text_generation_config = {
-    "temperature": 1,
-    "top_p": 1,
-    "top_k": 32,
+    "temperature": .9,
+    "top_p": 0.5,
+    "top_k": 100,
     "max_output_tokens": 512,
 }
 

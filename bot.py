@@ -66,16 +66,9 @@ async def handle_image_message(message, cleaned_text):
 
 async def handle_text_message(message, cleaned_text):
     """Processes messages that contain text only."""
-    if "RESET" in cleaned_text:
-        await reset_message_history(message)
-    else:
-        history_text = await get_channel_message_history(message.channel)
-        await send_text_response(message, history_text)
-
-async def reset_message_history(message):
-    """Resets the message history (not applicable when using actual channel history)."""
-    await message.channel.send(f"🤖 History Reset (This functionality is not applicable for actual channel history).")
-
+    history_text = await get_channel_message_history(message.channel)
+    await send_text_response(message, history_text)
+        
 # --------------------------------------------- Channel History Retrieval -------------------------------------------------
 
 async def get_channel_message_history(channel):
